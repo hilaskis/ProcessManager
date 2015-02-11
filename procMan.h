@@ -24,6 +24,7 @@ typedef struct server_info {
     int minp;
     int maxp;
     int active;
+    pid_t procs[MAXPROC];
 } svrinfo_t;
 
 void svrinfo_fact(svrinfo_t* svr) {
@@ -32,6 +33,10 @@ void svrinfo_fact(svrinfo_t* svr) {
     svr->minp = MINPROC;
     svr->maxp = MAXPROC;
     svr->active = 0;
+    int i;
+    for(i = 0; i < MAXPROC; i++) {
+        svr->procs[i] = -1;
+    }
 }
 
 #endif
