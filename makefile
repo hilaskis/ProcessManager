@@ -3,7 +3,7 @@ CFLAGS= -Wall -g
 
 default: all
 
-all: pcm svr proc
+all: pcm svr
 
 pcm: procMan.o
 	$(CC) $(CFLAGS) procMan.c procMan.h -o pcm
@@ -11,8 +11,5 @@ pcm: procMan.o
 svr: server.o
 	$(CC) $(FLAGS) server.c procMan.h -o svr
 
-proc: process.o
-	$(CC) $(CFLAGS) process.c procMan.h -o proc
-
 clean:
-	$(RM) pcm svr proc *.o *~
+	$(RM) pcm svr *.o *~

@@ -283,11 +283,13 @@ void quit(svrinfo_t *servers) {
 
 void disp_diag(svrinfo_t *servers)
 {
-    // printf("\tProcess Manager\n");
-    // int i;
-    // for(i = 0; i < MAXSERV; i++) {
-    //     if()
-    // }
+    printf("\tProcess Manager\n");
+    int i;
+    for(i = 0; i < MAXSERV; i++) {
+        if(servers[i].pid > 0) {
+
+        }
+    }
 }
 
 
