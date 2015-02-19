@@ -1,3 +1,7 @@
+// Seth Hilaski
+// CIS 452 - Operating Systems
+// Program 2 - Server Process Management System
+
 #ifndef PROC_MAN_H
 #define PROC_MAN_H
 
@@ -11,22 +15,25 @@
 #include <sys/wait.h>
 #include <ctype.h>
 
-#define MAXSERV 3
-#define MAXINPUT 512
-#define MAXARGS 15
+#define MAXSERV 3       //Maximum number of servers allowed
+#define MAXINPUT 512    //Maximum user input size supported
+#define MAXARGS 15      //Maximum user command arguments supported
 
-#define MAXPROC 10
-#define MINPROC 2
+#define MAXPROC 10      //Maximum number of processes a server can have
+#define MINPROC 2       //Minimum number of process a servers starts with
 
 typedef struct server_info {
-    pid_t  pid;
-    char name[MAXINPUT];
-    int minp;
-    int maxp;
-    int active;
-    pid_t procs[MAXPROC];
+    pid_t  pid;             //Server process id
+    char name[MAXINPUT];    //Server name
+    int minp;               //Minimum processes
+    int maxp;               //Maximum processes
+    int active;             //Number of active processes
+    pid_t procs[MAXPROC];   //List of active process PIDs
 } svrinfo_t;
 
+/* Factory funtion initializes server_info data structure.
+ *     svr: pointer to server_info data structure to initialize
+ */
 void svrinfo_fact(svrinfo_t* svr) {
     svr->pid = 0;
     svr->name[0] = '\0';
